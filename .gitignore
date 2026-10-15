@@ -1,0 +1,18 @@
+# Arquivos e pastas do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Arquivos compactados e pacotes locais
+*.zip
+*.tar.gz
+*.rar
+
+# Editores e IDEs
+.vscode/
+.idea/
+
+# Rascunhos brutos de fotos e logos na raiz (os oficiais de producao estao em assets/images/)
+Logotipo*
+FOTO*

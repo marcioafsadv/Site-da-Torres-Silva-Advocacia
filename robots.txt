@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://torresesilvaadvocacia.com.br/sitemap.xml
