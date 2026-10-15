@@ -171,9 +171,11 @@ ul {
 }
 
 .btn-outline-white {
-  background-color: transparent;
+  background-color: rgba(20, 23, 34, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.75);
 }
 
 .btn-outline-white:hover {
@@ -2299,28 +2301,71 @@ textarea.form-control {
     padding: 0 16px;
   }
 
-  /* Evita que a top-bar estoure a largura no mobile */
-  .top-bar-right {
-    display: none;
-  }
-
-  .top-bar-left {
-    justify-content: center;
-    text-align: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .top-bar-left .top-bar-item:nth-child(1),
-  .top-bar-separator {
-    display: none;
+  /* Barra superior visível em celulares (iPhone e Android), compacta e sem estourar a tela */
+  .top-bar {
+    display: block !important;
+    padding: 7px 0;
+    font-size: 0.78rem;
+    overflow: hidden;
   }
 
   .top-bar .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
+    gap: 6px 14px;
+    flex-wrap: wrap;
     text-align: center;
-    padding: 0 12px;
+    padding: 0 10px;
+  }
+
+  .top-bar-left {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 12px;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  /* Oculta o email longo (34 caracteres) no topo mobile para não estourar a tela */
+  .top-bar-item.top-bar-email,
+  .top-bar-sep-email {
+    display: none !important;
+  }
+
+  .top-bar-item {
+    font-size: 0.76rem;
+    white-space: nowrap;
+    gap: 5px;
+  }
+
+  .top-bar-phone a {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .top-bar-phone i {
+    color: var(--gold);
+  }
+
+  .top-bar-separator {
+    color: rgba(255, 255, 255, 0.25);
+    margin: 0;
+  }
+
+  .top-bar-right {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .top-social-link {
+    width: 24px;
+    height: 24px;
+    font-size: 0.78rem;
   }
 
   /* Oculta as setas laterais no mobile para nao sobrepor o botao Saiba Mais nem o texto */
@@ -2431,9 +2476,25 @@ textarea.form-control {
 }
 
 @media (max-width: 480px) {
-  /* Em telas menores que 480px, esconde a barra superior para focar no cabecalho limpo */
+  /* Mantém a barra de contatos visível e compacta no iPhone e telas pequenas */
   .top-bar {
-    display: none !important;
+    display: block !important;
+    padding: 6px 0;
+  }
+
+  .top-bar .container {
+    gap: 4px 10px;
+    padding: 0 8px;
+  }
+
+  .top-bar-item {
+    font-size: 0.72rem;
+  }
+
+  .top-social-link {
+    width: 22px;
+    height: 22px;
+    font-size: 0.72rem;
   }
 
   .logo-shield-img {
