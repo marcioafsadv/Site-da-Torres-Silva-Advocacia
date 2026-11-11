@@ -1,22 +1,24 @@
-﻿# ====================================================================
-# TORRES & SILVA ADVOCACIA - CONFIGURAÇÃO APACHE / LITESPEED (HOSTINGER)
+# ====================================================================
+# TORRES & SILVA ADVOCACIA - CONFIGURAÇÃO APACHE (UOL HOST / CPANEL)
 # ====================================================================
 
 # 1. Charset padrão UTF-8
 AddDefaultCharset UTF-8
-IndexIgnore *
 
 # 2. Página de Erro 404 personalizada
 ErrorDocument 404 /404.html
 
 # 3. Forçar HTTPS (SSL)
+# Temporariamente comentado para permitir validação do AutoSSL na UOL Host.
+# Assim que o certificado SSL for emitido no cPanel, descomente as regras abaixo.
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Forçar HTTPS
-  RewriteCond %{HTTPS} !=on
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # Forçar HTTPS (preservando /.well-known/ para renovação automática do SSL)
+  # RewriteCond %{HTTPS} !=on
+  # RewriteCond %{REQUEST_URI} !^/\.well-known/
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 # 4. Cabeçalhos de Segurança

@@ -1,0 +1,46 @@
+name: Deploy para UOL Host via FTPS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Enviar arquivos para public_html
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código do repositório
+        uses: actions/checkout@v4
+
+      - name: Sincronizar arquivos via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ftp.torresesilvaadvocacia.com.br
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          security: loose
+          local-dir: ./
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github
+            **/.github/**
+            **/.DS_Store
+            **/Thumbs.db
+            **/desktop.ini
+            **/.well-known
+            **/.well-known/**
+            **/cgi-bin
+            **/cgi-bin/**
+            **/php.ini
+            **/.user.ini
+            **/error_log
+            **/*.zip
+            **/README.md
+            **/Logotipo*
+            **/FOTO*
