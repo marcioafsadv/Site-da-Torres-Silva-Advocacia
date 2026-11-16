@@ -314,6 +314,24 @@ ul {
   flex-shrink: 0;
 }
 
+.logo-header-img {
+  height: 62px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.06));
+}
+
+.site-logo:hover .logo-header-img {
+  transform: scale(1.03);
+}
+
+.main-header.scrolled .logo-header-img {
+  height: 52px;
+}
+
 .logo-shield-img {
   height: 56px;
   width: auto;
@@ -468,6 +486,10 @@ ul {
   visibility: hidden;
   transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out, transform 6s ease-out;
   transform: scale(1.04);
+}
+
+.hero-slide.hero-slide-corridor {
+  background-position: center 40%;
 }
 
 .hero-slide.active {
@@ -2186,6 +2208,10 @@ textarea.form-control {
     letter-spacing: 0.3px;
   }
 
+  .logo-header-img {
+    height: 52px;
+  }
+
   .logo-shield-img {
     height: 48px;
   }
@@ -2495,6 +2521,10 @@ textarea.form-control {
     width: 22px;
     height: 22px;
     font-size: 0.72rem;
+  }
+
+  .logo-header-img {
+    height: 46px;
   }
 
   .logo-shield-img {
