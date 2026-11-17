@@ -1405,9 +1405,11 @@ ul {
 
 .faq-image-card {
   position: relative;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  background-color: #f7f3ee;
   width: 100%;
   min-height: 500px;
 }
